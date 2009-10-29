@@ -1,73 +1,172 @@
----
-app.yml
+# prestaPaypalPlugin
 
-prod:
-  paypal:       
-    username:   THE_USERNAME
-    password:   THE_PASSWORD
-    test:       false
-    signature:  THE_SIGNATURE
-    currency:   EUR
-    cmd:        _xclick
-    business:   THE_BUSINESS_DATAS
-    bn:         THE_BN_DATAS
-    host:       https://www.paypal.com/cgi-bin/webscr
-    button:     https://www.paypal.com/fr_FR/FR/i/btn/btn_buynow_LG.gif
-
-dev:
-  paypal:
-    username:   THE_USERNAME
-    password:   THE_PASSWORD
-    test:       true
-    signature:  THE_SIGNATURE
-    currency:   EUR
-    cmd:        _xclick
-    business:   THE_BUSINESS_DATAS
-    bn:         THE_BN_DATAS
-    host:       https://www.sandbox.paypal.com/cgi-bin/webscr
-    button:     https://www.paypal.com/fr_FR/FR/i/btn/btn_buynow_LG.gif
-
----
+The prestaPaypalPlugin provides an easy way to integrate paypal on your website.
+The PHP Paypal's API: SOAP Interface is included.
+This plugin is largely inspired from sfPaypalDirectPlugin developped by Isaac Saldana.
 
 
+## Features
+  * Express checkout
+  * Direct payment
+  * Website payment standard
 
----
-Controller :
+## License
 
-//paypal payment method
-		// We construct datas to send to paypal
-		$paypalData = array();
-		$paypalData["cmd"]     			= sfConfig::get('app_paypal_cmd');
-		$paypalData["business"]   		= sfConfig::get('app_paypal_business');
-		$paypalData["item_name"]   		= $this->o_order->getOfferLabel();
-		$paypalData["amount"]    		= $this->o_order->getOfferValueHt();
-		$paypalData["shipping"]   		= 0;
-		$paypalData["no_shipping"]  	= 1;
-		$paypalData["custom"]    		= $this->o_order->getIdInvoiceSite();
-		$paypalData["return"]    		= url_for('invoice/listInvoice', true);
-		$paypalData["cancel_return"]	= url_for('invoice/cancelPaypal?id_invoice='.$this->o_order->getIdInvoiceSite(), true);
-		$paypalData["notify_url"]     	= url_for('general/paypalNotify', true);
-		// TO MAKE IT WORK IN DEV ENVIRONMENT : 
-		//$paypalData["notify_url"]   	= 'http://www.prestaconcept.net/pp.php';
-		$paypalData["no_note"]    		= '1';
-		$paypalData["currency_code"]  	= sfConfig::get('app_paypal_currency');
-		$paypalData["tax"]     			= _calc_montant_TVA( $this->o_order->getOfferValueHt(), $this->o_order->getTvaValue() );
-		$paypalData["lc"]     			= 'FR';
-		$paypalData["bn"]     			= sfConfig::get('app_paypal_bn');;
-		$paypalData["host"]     		= sfConfig::get('app_paypal_host'); 
-		$paypalData["button"]     		= sfConfig::get('app_paypal_button');
-		
-		$payment_form 					= new pfwPaypal();
-		$this->paypal_form				= $payment_form->getFormStandardPayment($paypalData);
+The prestaPaypal plugin is licensed under the MIT License.
+ 
+## Installation
 
+  * Install the plugin:
 
----
+        [plain]
+        $ symfony plugin:install prestaPaypalPlugin
+        $ symfony cc
 
+## First
 
+First of all, you must create a developer account for testing on the sandbox : https://developer.paypal.com/.
+Next step, generate your business account to recieve payements and user account to do payements.
 
----
-View :
-$this->paypal_form->render();
+The prestaPaypal constructor takes the path where you install Paypal's API. I don't recommend putting it on lib since you don't want it to be automatically loaded on every page view.
 
+## Direct Payment method
 
+    [php]
+	// Setup API's credentials
+	$cc = new prestaPaypal( sfConfig::get('sf_plugins_dir').DIRECTORY_SEPARATOR.'prestaPaypalPlugin'.DIRECTORY_SEPARATOR.'sdk'.DIRECTORY_SEPARATOR.'lib' );
+	
+	// Your PayPal ID or an email address associated with your PayPal account. Email addresses must be confirmed.
+	$cc->setUserName(sfConfig::get('mod_registration_paypal_username'));
+	$cc->setPassword(sfConfig::get('mod_registration_paypal_password'));
+	// API signature
+	// How to get a signature ? https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_NVPAPIBasics
+	$cc->setSignature(sfConfig::get('mod_registration_paypal_signature'));
+	// Usefull in development environment
+	$cc->setTestMode(sfConfig::get('mod_registration_paypal_test'));
+	// Amount payement incl. taxes
+	$cc->setTransactionTotal($total);
+	// A description for the transaction
+	$cc->setTransactionDescription($desc);
 
+	// Client information :
+	$cc->setBillingFirstName($this->getRequestParameter('firstname'));
+	$cc->setBillingLastName($this->getRequestParameter('lastname'));
+	$cc->setBillingStreet1($this->getRequestParameter('address'));
+	$cc->setBillingStreet2($this->getRequestParameter('address2'));
+	$cc->setBillingCity($this->getRequestParameter('city'));
+	$cc->setBillingState($this->getRequestParameter('state'));
+	$cc->setBillingZip($this->getRequestParameter('zip'));
+	
+	$cc->setCardType($this->getRequestParameter('cctype'));
+	$cc->setCardNumber($this->getRequestParameter('cc'));
+	$cc->setCardVerificationNumber($this->getRequestParameter('ccv'));
+	$cc->setCardExpirationMonth($this->getRequestParameter('expmonth'));
+	$cc->setCardExpirationYear($this->getRequestParameter('expyear'));
+	$cc->setBuyerIP($_SERVER['REMOTE_ADDR']);
+
+	// Do payement
+	if ( !$cc->chargeDirect() )
+	{
+		$error = $cc->getErrorString();
+	}
+	return $error;
+	
+## Express Checkout
+
+	[php]
+    $cc = new prestaPaypal( sfConfig::get('sf_plugins_dir').DIRECTORY_SEPARATOR.'prestaPaypalPlugin'.DIRECTORY_SEPARATOR.'sdk'.DIRECTORY_SEPARATOR.'lib' );
+
+    // Setup API's credentials
+	// Your PayPal ID or an email address associated with your PayPal account. Email addresses must be confirmed.
+    $cc->setUserName(sfConfig::get('mod_registration_paypal_username'));
+    $cc->setPassword(sfConfig::get('mod_registration_paypal_password'));
+	// API signature
+	// How to get a signature ? https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_NVPAPIBasics
+    $cc->setSignature(sfConfig::get('mod_registration_paypal_signature'));
+	// Usefull in development environment
+    $cc->setTestMode(sfConfig::get('mod_registration_paypal_test'));
+
+    sfLoader::loadHelpers(array('Url'));
+    // A URL to which the payer's browser is redirected if payment is cancelled
+    $cc->setCancelURL(url_for('registration/cancelpaypal', true));
+
+    // The URL to which the payer's browser is redirected after completing the payment
+    $cc->setReturnURL(url_for('registration/chargepaypal', true));
+
+	// Amount payement incl. taxes
+    $cc->setTransactionTotal('39.95');
+    $cc->setTransactionDescription('Registration');
+
+    // The express url well-formed
+    $goto = $cc->GetExpressUrl();
+    if ( $goto )
+    {
+            $this->redirect($goto);
+    }
+    else
+    {
+            return $this->renderText('Error: ' . $cc->getErrorString());
+    }
+
+## Website payment standard
+
+	[php]
+	//paypal payment method
+	// We construct datas to send to paypal
+	$paypalData = array();
+	// _xclick, _donations, _cart, ...
+	$paypalData["cmd"]     			= sfConfig::get('app_paypal_cmd');
+	// Your PayPal ID or an email address associated with your PayPal account. Email addresses must be confirmed.
+	$paypalData["business"]   		= sfConfig::get('app_paypal_business');
+	// Name of the item or a name for the entire Shopping Cart
+	$paypalData["item_name"]   		= $offer_label;
+	// Price of the item or the total price of all items in the shopping cart.
+	$paypalData["amount"]    		= $offer_value;
+	// The cost of shipping this item
+	$paypalData["shipping"]   		= 0;
+	// 0 – prompt for an address, but do not require one
+	// 1 – do not prompt for an address
+	// 2 – prompt for an address, and require one
+	$paypalData["no_shipping"]  	= 1;
+	// Passthrough variable never presented to the payer.
+	$paypalData["custom"]    		= $id_invoice;
+	// The URL to which the payer's browser is redirected after completing the payment
+	$paypalData["return"]    		= url_for('invoice/listInvoice', true);
+	// A URL to which the payer's browser is redirected if payment is cancelled
+	$paypalData["cancel_return"]	= url_for('invoice/cancelPaypal?id_invoice='.$this->o_order->getIdInvoiceSite(), true);
+	// The URL to which PayPal posts information about the transaction, in the form of Instant Payment Notification messages.
+	$paypalData["notify_url"]     	= url_for('general/paypalNotify', true);
+	
+	// Do not prompt payers to include a note with their payments
+	$paypalData["no_note"]    		= '1';
+	// The currency of prices for trial periods and the subscription. The default is USD.
+	$paypalData["currency_code"]  	= sfConfig::get('app_paypal_currency');
+	// Transaction-based tax override variable. 
+	// Set this to a flat tax amount to apply to the transaction regardless of the buyer's location. 
+	// This value overrides any tax settings set in your account profile. 
+	// Valid only for Buy Now and Add to Cart buttons. 
+	// Default – Profile tax settings, if any, apply.
+	$paypalData["tax"]     			= _calc_montant_TVA( $this->o_order->getOfferValueHt(), $this->o_order->getTvaValue() );
+	// The language of the login or sign-up page that subscribers see when they click the Subscribe button
+	$paypalData["lc"]     			= 'FR';
+	// Type of button. For example, PP-BuyNowBF.
+	$paypalData["bn"]     			= sfConfig::get('app_paypal_bn');
+	// Host for payement.  For example, https://www.paypal.com/cgi-bin/webscr
+	$paypalData["host"]     		= sfConfig::get('app_paypal_host'); 
+	// The picture used for the button. For example, https://www.paypal.com/fr_FR/FR/i/btn/btn_buynow_LG.gif
+	$paypalData["button"]     		= sfConfig::get('app_paypal_button');
+	
+	// Don't need to load paypal's api
+	$payment_form 					= new prestaPaypal();
+	$this->paypal_form				= $payment_form->getFormStandardPayment($paypalData);
+	
+	// In <view>Success.php :
+	// echo $paypal_form->render();
+	
+HTML Variables for Website Payments Standard : [here](https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_html_Appx_websitestandard_htmlvariables)
+	
+## Notices
+
+The prestaPaypalPlugin use the PHP Paypal's API Version 4.3.7.
+	
+## Changelog

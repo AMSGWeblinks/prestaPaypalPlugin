@@ -1,6 +1,6 @@
 <?php
 
-class pfwPaypal
+class prestaPaypal
 {
 	/**
 	 * API username to login to Paypal
