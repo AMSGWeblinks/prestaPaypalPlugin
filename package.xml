@@ -9,11 +9,12 @@
 
 	<summary>Shortcut for Paypal API usage</summary>
 	<description>
-The pfwPaypal plugin provides an easy way to integrate paypal on your website.
+The prestaPaypal plugin provides an easy way to integrate paypal on your website.
 The PHP Paypal's API: SOAP Interface is included.
 This plugin is largely inspired from sfPaypalDirectPlugin developped by Isaac Saldana.
 
 Features :
+
   * Express checkout
   * Direct payment
   * Website payment standard
@@ -36,6 +37,18 @@ Features :
 		<user>jfusco</user>
 		<email>jfusco@prestaconcept.net</email>
 		<active>yes</active>
+	</developer>
+	<developer>
+		<name>Guillaume Patier</name>
+		<user>gpatier</user>
+		<email>gpatier@prestaconcept.net</email>
+		<active>no</active>
+	</developer>
+	<developer>
+		<name>Lorraine Soudade</name>
+		<user>lsoudade</user>
+		<email>lsoudade@prestaconcept.net</email>
+		<active>no</active>
 	</developer>
 
 	<date>2009-10-29</date>
@@ -494,6 +507,7 @@ Features :
 			<file name="sdk/docs/LICENSE.txt" role="data" />
 			<file name="sdk/docs/FTPManifest.txt" role="data" />
 			<file name="sdk/docs/apidoc.zip" role="data" />
+			<file name="LICENSE" role="data" />
 			<file name="README" role="data" />
 		</dir>
 	</contents>
