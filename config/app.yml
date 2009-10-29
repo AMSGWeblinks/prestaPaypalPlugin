@@ -1,0 +1,4 @@
+all:
+  paypal_form:
+    mandatory_fields: [ business, item_name, cmd ]
+    

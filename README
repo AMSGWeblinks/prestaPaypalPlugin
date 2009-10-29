@@ -1,0 +1,73 @@
+---
+app.yml
+
+prod:
+  paypal:       
+    username:   THE_USERNAME
+    password:   THE_PASSWORD
+    test:       false
+    signature:  THE_SIGNATURE
+    currency:   EUR
+    cmd:        _xclick
+    business:   THE_BUSINESS_DATAS
+    bn:         THE_BN_DATAS
+    host:       https://www.paypal.com/cgi-bin/webscr
+    button:     https://www.paypal.com/fr_FR/FR/i/btn/btn_buynow_LG.gif
+
+dev:
+  paypal:
+    username:   THE_USERNAME
+    password:   THE_PASSWORD
+    test:       true
+    signature:  THE_SIGNATURE
+    currency:   EUR
+    cmd:        _xclick
+    business:   THE_BUSINESS_DATAS
+    bn:         THE_BN_DATAS
+    host:       https://www.sandbox.paypal.com/cgi-bin/webscr
+    button:     https://www.paypal.com/fr_FR/FR/i/btn/btn_buynow_LG.gif
+
+---
+
+
+
+---
+Controller :
+
+//paypal payment method
+		// We construct datas to send to paypal
+		$paypalData = array();
+		$paypalData["cmd"]     			= sfConfig::get('app_paypal_cmd');
+		$paypalData["business"]   		= sfConfig::get('app_paypal_business');
+		$paypalData["item_name"]   		= $this->o_order->getOfferLabel();
+		$paypalData["amount"]    		= $this->o_order->getOfferValueHt();
+		$paypalData["shipping"]   		= 0;
+		$paypalData["no_shipping"]  	= 1;
+		$paypalData["custom"]    		= $this->o_order->getIdInvoiceSite();
+		$paypalData["return"]    		= url_for('invoice/listInvoice', true);
+		$paypalData["cancel_return"]	= url_for('invoice/cancelPaypal?id_invoice='.$this->o_order->getIdInvoiceSite(), true);
+		$paypalData["notify_url"]     	= url_for('general/paypalNotify', true);
+		// TO MAKE IT WORK IN DEV ENVIRONMENT : 
+		//$paypalData["notify_url"]   	= 'http://www.prestaconcept.net/pp.php';
+		$paypalData["no_note"]    		= '1';
+		$paypalData["currency_code"]  	= sfConfig::get('app_paypal_currency');
+		$paypalData["tax"]     			= _calc_montant_TVA( $this->o_order->getOfferValueHt(), $this->o_order->getTvaValue() );
+		$paypalData["lc"]     			= 'FR';
+		$paypalData["bn"]     			= sfConfig::get('app_paypal_bn');;
+		$paypalData["host"]     		= sfConfig::get('app_paypal_host'); 
+		$paypalData["button"]     		= sfConfig::get('app_paypal_button');
+		
+		$payment_form 					= new pfwPaypal();
+		$this->paypal_form				= $payment_form->getFormStandardPayment($paypalData);
+
+
+---
+
+
+
+---
+View :
+$this->paypal_form->render();
+
+
+
