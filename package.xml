@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.2" version="2.0"
-	xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<package xmlns="http://pear.php.net/dtd/package-2.0"
+	xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	packagerversion="1.4.1" version="2.0"
 	xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
-
 	<name>prestaPaypalPlugin</name>
 	<channel>plugins.symfony-project.org</channel>
-
 	<summary>Shortcut for Paypal API usage</summary>
-	<description>
-The prestaPaypal plugin provides an easy way to integrate paypal on your website.
+	<description>The prestaPaypal plugin provides an easy way to integrate paypal on your website.
 The PHP Paypal's API: SOAP Interface is included.
 This plugin is largely inspired from sfPaypalDirectPlugin developped by Isaac Saldana.
 
@@ -17,19 +14,17 @@ Features :
 
   * Express checkout
   * Direct payment
-  * Website payment standard
-	</description>
-
+  * Website payment standard</description>
 	<lead>
-		<name>Mikael Randy</name>
-		<user>mrandy</user>
-		<email>mrandy@prestaconcept.net</email>
-		<active>yes</active>
-	</lead>	
-	<lead>
-		<name>Christophe Dolivet</name>
+		<name>Christophe DOLIVET</name>
 		<user>cdolivet</user>
 		<email>cdolivet@prestaconcept.net</email>
+		<active>yes</active>
+	</lead>
+	<lead>
+		<name>Mikael RANDY</name>
+		<user>mikael.randy</user>
+		<email>mrandy@prestaconcept.net</email>
 		<active>yes</active>
 	</lead>
 	<developer>
@@ -50,11 +45,10 @@ Features :
 		<email>lsoudade@prestaconcept.net</email>
 		<active>no</active>
 	</developer>
-
-	<date>2009-10-29</date>
+	<date>2010-03-30</date>
 	<version>
-		<release>0.0.2</release>
-		<api>0.0.2</api>
+		<release>0.0.3</release>
+		<api>0.0.3</api>
 	</version>
 	<stability>
 		<release>beta</release>
@@ -63,455 +57,286 @@ Features :
 	<license uri="http://www.symfony-project.org/license">
 		MIT license
 	</license>
-	<notes>
-		* Renaming of all "pfw*" stuff in the code to "presta*" one
-		* update README to give a real documentation in markdown syntax
-		
-		WARNING : project who use 0.0.1 release must have to change its implementation. "pfwPaypal" class become "prestaPaypal" class
-	</notes>
-
+	<notes>-</notes>
 	<contents>
 		<dir name="/">
-			<file name="config/app.yml" role="data" />
-			<file name="lib/form/paypalForm.class.php" role="data" />
-			<file name="lib/class/prestaPaypal.class.php" role="data" />
-			<file name="sdk/lib/Log/mail.php" role="data" />
-			<file name="sdk/lib/Log/console.php" role="data" />
-			<file name="sdk/lib/Log/observer.php" role="data" />
-			<file name="sdk/lib/Log/composite.php" role="data" />
-			<file name="sdk/lib/Log/mdb2.php" role="data" />
-			<file name="sdk/lib/Log/display.php" role="data" />
-			<file name="sdk/lib/Log/file.php" role="data" />
-			<file name="sdk/lib/Log/syslog.php" role="data" />
-			<file name="sdk/lib/Log/null.php" role="data" />
-			<file name="sdk/lib/Log/mcal.php" role="data" />
-			<file name="sdk/lib/Log/sqlite.php" role="data" />
-			<file name="sdk/lib/Log/error_log.php" role="data" />
-			<file name="sdk/lib/Log/sql.php" role="data" />
-			<file name="sdk/lib/Log/daemon.php" role="data" />
-			<file name="sdk/lib/Log/win.php" role="data" />
-			<file name="sdk/lib/Net/Socket.php" role="data" />
-			<file name="sdk/lib/Net/URL.php" role="data" />
-			<file name="sdk/lib/HTTP/Request/Listener.php" role="data" />
-			<file name="sdk/lib/HTTP/Request.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Transport/HTTP.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Type/hexBinary.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Type/dateTime.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Type/duration.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Fault.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Base.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Value.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Transport.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Disco.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Parser.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/WSDL.php" role="data" />
-			<file name="sdk/lib/PayPal/SOAP/Client.php" role="data" />
-			<file name="sdk/lib/PayPal/cert/live.paypal.com.pem" role="data" />
-			<file name="sdk/lib/PayPal/cert/api_cert_chain.crt" role="data" />
-			<file name="sdk/lib/PayPal/cert/sandbox.paypal.com.pem" role="data" />
-			<file name="sdk/lib/PayPal/conf/paypal-sdk.php.dist" role="data" />
-			<file name="sdk/lib/PayPal/conf/paypal-sdk.php" role="data" />
-			<file name="sdk/lib/PayPal/Profile/Handler/File.php" role="data" />
-			<file name="sdk/lib/PayPal/Profile/Handler/Array.php" role="data" />
-			<file name="sdk/lib/PayPal/Profile/Handler.php" role="data" />
-			<file name="sdk/lib/PayPal/Profile/API.php" role="data" />
-			<file name="sdk/lib/PayPal/Profile/EWP.php" role="data" />
-			<file name="sdk/lib/PayPal/wsdl/CoreComponentTypes.xsd" role="data" />
-			<file name="sdk/lib/PayPal/wsdl/paypal-endpoints.xml" role="data" />
-			<file name="sdk/lib/PayPal/wsdl/PayPalSvc.wsdl" role="data" />
-			<file name="sdk/lib/PayPal/wsdl/eBLBaseComponents.xsd" role="data" />
-			<file name="sdk/lib/PayPal/wsdl/paypal-endpoints.php" role="data" />
-			<file name="sdk/lib/PayPal/wsdl/paypal-endpoints-threetoken.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CalculatedShippingRateType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AccountEntryType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ShippingInfoType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ErrorType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/MassPayResponseType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/TaxInfoType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/BillingPeriodDetailsType_Update.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PhoneNumberType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentTransactionType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoNonReferencedCreditResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentDetailsItemType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoReauthorizationResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BasicAmountType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/FeeType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/GetTransactionDetailsResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/FeesType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ListOfAttributeSetType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CrossPromotionsType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/SetAccessPermissionsRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetBoardingDetailsResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SalesTaxType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetAccessPermissionDetailsResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoReauthorizationRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AttributeSetType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/XSDSimpleType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/BillOutstandingAmountResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/RefundTransactionRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/EnterBoardingResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BusinessInfoType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/CreateBillingAgreementRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/OptionType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/MerchantPullInfoType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoAuthorizationResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BillingPeriodDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/UpdateAccessPermissionsResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/TransactionType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/SellingStatusType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoReferenceTransactionRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AddressVerifyRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BillOutstandingAmountRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetExpressCheckoutResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AbstractRequestType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/AdditionalAccountType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ItemArrayType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoCaptureResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CreateBillingAgreementResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BAUpdateResponseDetailsType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BusinessOwnerInfoType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/SiteHostedPictureType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/BillUserResponseType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/SchedulingInfoType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/TransactionStatusType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ItemType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/GetMobileStatusResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/UpdateAccessPermissionsRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoMobileCheckoutPaymentRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/EnhancedDataType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ReferenceCreditCardDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CreditCardDetailsType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/FlightDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/CreditCardNumberTypeType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/ModifiedFieldType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/RefundTransactionResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/MassPayRequestType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/GetBoardingDetailsResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/ListingDesignerType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ShippingCarrierDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetMobileStatusRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetAuthDetailsRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/ListingDetailsType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/ManagePendingTransactionStatusRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/MerchantPullPaymentResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/FMFDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/BillOutstandingAmountResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CategoryType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoUATPAuthorizationResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetBalanceResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/ManagePendingTransactionStatusResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetExpressCheckoutDetailsResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetRecurringPaymentsProfileDetailsRequestType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/SetCustomerBillingAgreementRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetAuthDetailsResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/ShippingDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoNonReferencedCreditRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoNonReferencedCreditResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoReferenceTransactionRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoVoidRequestType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetExpressCheckoutDetailsResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetRecurringPaymentsProfileDetailsResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BuyerType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoVoidResponseType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/PayerInfoType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoNonReferencedCreditRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/StorefrontType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/RecurringPaymentsSummaryType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetTransactionDetailsRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoAuthorizationRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AirlineItineraryType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoUATPAuthorizationRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetExpressCheckoutDetailsRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BAUpdateRequestType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoMobileCheckoutPaymentResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CreateMobilePaymentRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BAUpdateResponseType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/EnterBoardingRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/ValType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/UATPDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/AuctionInfoType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ScheduleDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/MerchantPullPaymentType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/BillOutstandingAmountRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentMeansType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/SetMobileCheckoutResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetAccessPermissionsRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AmountType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoUATPExpressCheckoutPaymentRequestType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetAccessPermissionDetailsResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoDirectPaymentRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetExpressCheckoutRequestDetailsType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetBillingAgreementCustomerDetailsRequestType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/UserIdPasswordType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/CreateMobilePaymentResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/TransactionSearchRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SellerType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/AccountSummaryType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/RiskFilterListType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/MeasureType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoDirectPaymentResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CategoryArrayType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/TransactionsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/FlatShippingRateType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/SetMobileCheckoutRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/ActivationDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ErrorParameterType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/VendorHostedPictureType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PersonNameType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/CreateMobilePaymentRequestType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/SetCustomerBillingAgreementRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SubscriptionInfoType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetRecurringPaymentsProfileDetailsResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoMobileCheckoutPaymentResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PaginationType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/APICredentialsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/ReceiverInfoType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetBillingAgreementCustomerDetailsResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/RiskFilterDetailsType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoReferenceTransactionResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetBoardingDetailsRequestType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/DoUATPExpressCheckoutPaymentResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/BillingAgreementDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/CharityType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/BankAccountDetailsType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentDetailsType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/SetEbayMobileCheckoutRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/ReviseStatusType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/XSDType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoCaptureRequestType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/UserType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/DoReferenceTransactionResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoCaptureResponseType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/BillUserRequestType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/AbstractResponseType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/PromotedItemType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/EnterBoardingRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetMobileStatusRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetAuthDetailsResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AttributeType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/PaginationResultType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentItemInfoType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/GetBillingAgreementCustomerDetailsResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/VATDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/GetBalanceRequestType.php" role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/MassPayRequestItemType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentTransactionSearchResultType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/EbayItemPaymentDetailsItemType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileResponseDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetAuthFlowParamResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetMobileCheckoutRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetAccessPermissionsResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AddressType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/FaultDetailsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentInfoType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/QuantityType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/CustomSecurityHeaderType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/TransactionSearchResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetAuthFlowParamRequestDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/AddressVerifyResponseType.php"
-				role="data" />
-			<file
-				name="sdk/lib/PayPal/Type/SetCustomerBillingAgreementResponseType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SetAuthFlowParamRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/PaymentItemType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/SetExpressCheckoutRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/GetAccessPermissionDetailsRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/SubscriptionTermsType.php" role="data" />
-			<file name="sdk/lib/PayPal/Type/RecurringPaymentsProfileDetailsType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Type/DoDirectPaymentRequestType.php"
-				role="data" />
-			<file name="sdk/lib/PayPal/Error.php" role="data" />
-			<file name="sdk/lib/PayPal/SDKProxyProperties.php" role="data" />
-			<file name="sdk/lib/PayPal/Profile.php" role="data" />
-			<file name="sdk/lib/PayPal/EWPServices.php" role="data" />
-			<file name="sdk/lib/PayPal/CallerServices.php" role="data" />
-			<file name="sdk/lib/Log.php" role="data" />
-			<file name="sdk/lib/Multi.php" role="data" />
-			<file name="sdk/lib/PayPal.php" role="data" />
-			<file name="sdk/docs/Changelog.txt" role="data" />
-			<file name="sdk/docs/LICENSE.txt" role="data" />
-			<file name="sdk/docs/FTPManifest.txt" role="data" />
-			<file name="sdk/docs/apidoc.zip" role="data" />
-			<file name="LICENSE" role="data" />
-			<file name="README" role="data" />
+			<file role="data" name="LICENSE" />
+			<file role="data" name="README" />
+			<file role="data" name="config/app.yml" />
+			<file role="data" name="lib/class/prestaPaypal.class.php" />
+			<file role="data" name="lib/form/paypalForm.class.php" />
+			<file role="data" name="sdk/docs/Changelog.txt" />
+			<file role="data" name="sdk/docs/FTPManifest.txt" />
+			<file role="data" name="sdk/docs/LICENSE.txt" />
+			<file role="data" name="sdk/docs/apidoc.zip" />
+			<file role="data" name="sdk/lib/HTTP/Request.php" />
+			<file role="data" name="sdk/lib/HTTP/Request/Listener.php" />
+			<file role="data" name="sdk/lib/Log.php" />
+			<file role="data" name="sdk/lib/Log/composite.php" />
+			<file role="data" name="sdk/lib/Log/console.php" />
+			<file role="data" name="sdk/lib/Log/daemon.php" />
+			<file role="data" name="sdk/lib/Log/display.php" />
+			<file role="data" name="sdk/lib/Log/error_log.php" />
+			<file role="data" name="sdk/lib/Log/file.php" />
+			<file role="data" name="sdk/lib/Log/mail.php" />
+			<file role="data" name="sdk/lib/Log/mcal.php" />
+			<file role="data" name="sdk/lib/Log/mdb2.php" />
+			<file role="data" name="sdk/lib/Log/null.php" />
+			<file role="data" name="sdk/lib/Log/observer.php" />
+			<file role="data" name="sdk/lib/Log/sql.php" />
+			<file role="data" name="sdk/lib/Log/sqlite.php" />
+			<file role="data" name="sdk/lib/Log/syslog.php" />
+			<file role="data" name="sdk/lib/Log/win.php" />
+			<file role="data" name="sdk/lib/Multi.php" />
+			<file role="data" name="sdk/lib/Net/Socket.php" />
+			<file role="data" name="sdk/lib/Net/URL.php" />
+			<file role="data" name="sdk/lib/PayPal.php" />
+			<file role="data" name="sdk/lib/PayPal/CallerServices.php" />
+			<file role="data" name="sdk/lib/PayPal/EWPServices.php" />
+			<file role="data" name="sdk/lib/PayPal/Error.php" />
+			<file role="data" name="sdk/lib/PayPal/Profile.php" />
+			<file role="data" name="sdk/lib/PayPal/Profile/API.php" />
+			<file role="data" name="sdk/lib/PayPal/Profile/EWP.php" />
+			<file role="data" name="sdk/lib/PayPal/Profile/Handler.php" />
+			<file role="data" name="sdk/lib/PayPal/Profile/Handler/Array.php" />
+			<file role="data" name="sdk/lib/PayPal/Profile/Handler/File.php" />
+			<file role="data" name="sdk/lib/PayPal/SDKProxyProperties.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Base.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Client.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Disco.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Fault.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Parser.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Transport.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Transport/HTTP.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Type/dateTime.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Type/duration.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Type/hexBinary.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/Value.php" />
+			<file role="data" name="sdk/lib/PayPal/SOAP/WSDL.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/APICredentialsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AbstractRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AbstractResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AccountEntryType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AccountSummaryType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ActivationDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AdditionalAccountType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AddressType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AddressVerifyRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AddressVerifyResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AirlineItineraryType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AmountType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AttributeSetType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AttributeType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/AuctionInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BAUpdateRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BAUpdateResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BAUpdateResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BankAccountDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BasicAmountType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillOutstandingAmountRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillOutstandingAmountRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillOutstandingAmountResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillOutstandingAmountResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillUserRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillUserResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillingAgreementDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillingPeriodDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BillingPeriodDetailsType_Update.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BusinessInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BusinessOwnerInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/BuyerType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CalculatedShippingRateType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CategoryArrayType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CategoryType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CharityType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateBillingAgreementRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateBillingAgreementResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateMobilePaymentRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateMobilePaymentRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateMobilePaymentResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreateRecurringPaymentsProfileResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreditCardDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CreditCardNumberTypeType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CrossPromotionsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/CustomSecurityHeaderType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoAuthorizationRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoAuthorizationResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoCaptureRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoCaptureResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoCaptureResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoDirectPaymentRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoDirectPaymentRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoDirectPaymentResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoExpressCheckoutPaymentResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoMobileCheckoutPaymentRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoMobileCheckoutPaymentResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoMobileCheckoutPaymentResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoNonReferencedCreditRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoNonReferencedCreditRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoNonReferencedCreditResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoNonReferencedCreditResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoReauthorizationRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoReauthorizationResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoReferenceTransactionRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoReferenceTransactionRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoReferenceTransactionResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoReferenceTransactionResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoUATPAuthorizationRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoUATPAuthorizationResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoUATPExpressCheckoutPaymentRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoUATPExpressCheckoutPaymentResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoVoidRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/DoVoidResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/EbayItemPaymentDetailsItemType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/EnhancedDataType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/EnterBoardingRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/EnterBoardingRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/EnterBoardingResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ErrorParameterType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ErrorType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/FMFDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/FaultDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/FeeType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/FeesType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/FlatShippingRateType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/FlightDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetAccessPermissionDetailsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetAccessPermissionDetailsResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetAccessPermissionDetailsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetAuthDetailsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetAuthDetailsResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetAuthDetailsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBalanceRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBalanceResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBillingAgreementCustomerDetailsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBillingAgreementCustomerDetailsResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBillingAgreementCustomerDetailsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBoardingDetailsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBoardingDetailsResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetBoardingDetailsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetExpressCheckoutDetailsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetExpressCheckoutDetailsResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetExpressCheckoutDetailsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetMobileStatusRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetMobileStatusRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetMobileStatusResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetRecurringPaymentsProfileDetailsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetRecurringPaymentsProfileDetailsResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetRecurringPaymentsProfileDetailsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetTransactionDetailsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/GetTransactionDetailsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ItemArrayType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ItemType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ListOfAttributeSetType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ListingDesignerType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ListingDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ManagePendingTransactionStatusRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ManagePendingTransactionStatusResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ManageRecurringPaymentsProfileStatusResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/MassPayRequestItemType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/MassPayRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/MassPayResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/MeasureType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/MerchantPullInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/MerchantPullPaymentResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/MerchantPullPaymentType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ModifiedFieldType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/OptionType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaginationResultType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaginationType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PayerInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentDetailsItemType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentItemInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentItemType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentMeansType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentTransactionSearchResultType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentTransactionType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PaymentType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PersonNameType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PhoneNumberType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/PromotedItemType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/QuantityType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ReceiverInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/RecurringPaymentsProfileDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/RecurringPaymentsSummaryType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ReferenceCreditCardDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/RefundTransactionRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/RefundTransactionResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ReviseStatusType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/RiskFilterDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/RiskFilterListType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SalesTaxType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ScheduleDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SchedulingInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SellerType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SellingStatusType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetAccessPermissionsRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetAccessPermissionsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetAccessPermissionsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetAuthFlowParamRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetAuthFlowParamRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetAuthFlowParamResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetCustomerBillingAgreementRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetCustomerBillingAgreementRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetCustomerBillingAgreementResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetEbayMobileCheckoutRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetExpressCheckoutRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetExpressCheckoutRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetExpressCheckoutResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetMobileCheckoutRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetMobileCheckoutRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SetMobileCheckoutResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ShippingCarrierDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ShippingDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ShippingInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SiteHostedPictureType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/StorefrontType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SubscriptionInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/SubscriptionTermsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/TaxInfoType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/TransactionSearchRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/TransactionSearchResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/TransactionStatusType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/TransactionType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/TransactionsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UATPDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UpdateAccessPermissionsRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UpdateAccessPermissionsResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileRequestDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileRequestType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileResponseDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UpdateRecurringPaymentsProfileResponseType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UserIdPasswordType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/UserType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/VATDetailsType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/ValType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/VendorHostedPictureType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/XSDSimpleType.php" />
+			<file role="data" name="sdk/lib/PayPal/Type/XSDType.php" />
+			<file role="data" name="sdk/lib/PayPal/cert/api_cert_chain.crt" />
+			<file role="data" name="sdk/lib/PayPal/cert/live.paypal.com.pem" />
+			<file role="data" name="sdk/lib/PayPal/cert/sandbox.paypal.com.pem" />
+			<file role="data" name="sdk/lib/PayPal/conf/paypal-sdk.php" />
+			<file role="data" name="sdk/lib/PayPal/conf/paypal-sdk.php.dist" />
+			<file role="data" name="sdk/lib/PayPal/wsdl/CoreComponentTypes.xsd" />
+			<file role="data" name="sdk/lib/PayPal/wsdl/PayPalSvc.wsdl" />
+			<file role="data" name="sdk/lib/PayPal/wsdl/eBLBaseComponents.xsd" />
+			<file role="data" name="sdk/lib/PayPal/wsdl/paypal-endpoints-threetoken.php" />
+			<file role="data" name="sdk/lib/PayPal/wsdl/paypal-endpoints.php" />
+			<file role="data" name="sdk/lib/PayPal/wsdl/paypal-endpoints.xml" />
 		</dir>
 	</contents>
-
 	<dependencies>
 		<required>
 			<php>
@@ -524,33 +349,27 @@ Features :
 				<name>symfony</name>
 				<channel>pear.symfony-project.com</channel>
 				<min>1.2.0</min>
-				<max>1.3.0</max>
-				<exclude>1.3.0</exclude>
+				<max>2.0.0</max>
+				<exclude>2.0.0</exclude>
 			</package>
 		</required>
 	</dependencies>
-
 	<phprelease />
-
 	<changelog>
 		<release>
 			<version>
-				<release>0.0.1</release>
-				<api>0.0.1</api>
+				<release>0.0.3</release>
+				<api>0.0.3</api>
 			</version>
 			<stability>
 				<release>beta</release>
 				<api>beta</api>
 			</stability>
-			<license>???</license>
-			<date>2009-10-05</date>
-			<license uri="http://www.symfony-project.org/license">
-				MIT license
-			</license>
+			<date>2010-03-30</date>
 			<notes>
-	        	* First internal beta version
-	      	</notes>
-		</release>
+* Update plugin package.xml to allow installation for sf1.3/1.4
+	        </notes>
+		</release> 
 		<release>
 			<version>
 				<release>0.0.2</release>
@@ -570,6 +389,23 @@ Features :
 				WARNING : project who use 0.0.1 release must have to change its implementation. "pfwPaypal" class become "prestaPaypal" class
 			</notes>
 		</release>
+		<release>
+			<version>
+				<release>0.0.1</release>
+				<api>0.0.1</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<license>???</license>
+			<date>2009-10-05</date>
+			<license uri="http://www.symfony-project.org/license">
+				MIT license
+			</license>
+			<notes>
+	        	* First internal beta version
+	      	</notes>
+		</release>
 	</changelog>
-
 </package>

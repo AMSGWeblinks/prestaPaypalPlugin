@@ -170,3 +170,8 @@ HTML Variables for Website Payments Standard : [here](https://cms.paypal.com/us/
 The prestaPaypalPlugin use the PHP Paypal's API Version 4.3.7.
 	
 ## Changelog
+
+### 2010-03-30 | 0.0.3-beta
+
+  * Update plugin package.xml to allow installation for sf1.3/1.4
+

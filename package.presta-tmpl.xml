@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0"
+	xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	packagerversion="1.4.1" version="2.0"
+	xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+	<name>prestaPaypalPlugin</name>
+	<channel>plugins.symfony-project.org</channel>
+	<summary>Shortcut for Paypal API usage</summary>
+	<description>The prestaPaypal plugin provides an easy way to integrate paypal on your website.
+The PHP Paypal's API: SOAP Interface is included.
+This plugin is largely inspired from sfPaypalDirectPlugin developped by Isaac Saldana.
+
+Features :
+
+  * Express checkout
+  * Direct payment
+  * Website payment standard</description>
+	<lead>
+		<name>Christophe DOLIVET</name>
+		<user>cdolivet</user>
+		<email>cdolivet@prestaconcept.net</email>
+		<active>yes</active>
+	</lead>
+	<lead>
+		<name>Mikael RANDY</name>
+		<user>mikael.randy</user>
+		<email>mrandy@prestaconcept.net</email>
+		<active>yes</active>
+	</lead>
+	<developer>
+		<name>Julien Fusco</name>
+		<user>jfusco</user>
+		<email>jfusco@prestaconcept.net</email>
+		<active>yes</active>
+	</developer>
+	<developer>
+		<name>Guillaume Patier</name>
+		<user>gpatier</user>
+		<email>gpatier@prestaconcept.net</email>
+		<active>no</active>
+	</developer>
+	<developer>
+		<name>Lorraine Soudade</name>
+		<user>lsoudade</user>
+		<email>lsoudade@prestaconcept.net</email>
+		<active>no</active>
+	</developer>
+	<date>##CURRENT_DATE##</date>
+	<version>
+		<release>##PLUGIN_VERSION##</release>
+		<api>##API_VERSION##</api>
+	</version>
+	<stability>
+		<release>##STABILITY##</release>
+		<api>##STABILITY##</api>
+	</stability>
+	<license uri="http://www.symfony-project.org/license">
+		MIT license
+	</license>
+	<notes>-</notes>
+	<contents>
+##CONTENTS##
+	</contents>
+	<dependencies>
+		<required>
+			<php>
+				<min>5.2.4</min>
+			</php>
+			<pearinstaller>
+				<min>1.4.1</min>
+			</pearinstaller>
+			<package>
+				<name>symfony</name>
+				<channel>pear.symfony-project.com</channel>
+				<min>1.2.0</min>
+				<max>2.0.0</max>
+				<exclude>2.0.0</exclude>
+			</package>
+		</required>
+	</dependencies>
+	<phprelease />
+	<changelog>
+##NEW_RELEASE##
+		<release>
+			<version>
+				<release>0.0.3</release>
+				<api>0.0.3</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<date>2010-03-30</date>
+			<notes>
+* Update plugin package.xml to allow installation for sf1.3/1.4
+	        </notes>
+		</release> 
+		<release>
+			<version>
+				<release>0.0.2</release>
+				<api>0.0.2</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<license uri="http://www.symfony-project.org/license">
+				MIT license
+			</license>
+			<notes>
+				* Renaming of all "pfw*" stuff in the code to "presta*" one
+				* update README to give a real documentation in markdown syntax
+				
+				WARNING : project who use 0.0.1 release must have to change its implementation. "pfwPaypal" class become "prestaPaypal" class
+			</notes>
+		</release>
+		<release>
+			<version>
+				<release>0.0.1</release>
+				<api>0.0.1</api>
+			</version>
+			<stability>
+				<release>beta</release>
+				<api>beta</api>
+			</stability>
+			<license>???</license>
+			<date>2009-10-05</date>
+			<license uri="http://www.symfony-project.org/license">
+				MIT license
+			</license>
+			<notes>
+	        	* First internal beta version
+	      	</notes>
+		</release>
+	</changelog>
+</package>
