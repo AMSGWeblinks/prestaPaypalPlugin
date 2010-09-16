@@ -85,8 +85,10 @@ The prestaPaypal constructor takes the path where you install Paypal's API. I do
     $cc->setSignature(sfConfig::get('mod_registration_paypal_signature'));
 	// Usefull in development environment
     $cc->setTestMode(sfConfig::get('mod_registration_paypal_test'));
-
-    sfLoader::loadHelpers(array('Url'));
+	
+	// Warning : you must be in an action method for this line
+	sfContext::getInstance()->getConfiguration()->loadHelpers('Url');
+    
     // A URL to which the payer's browser is redirected if payment is cancelled
     $cc->setCancelURL(url_for('registration/cancelpaypal', true));
 
@@ -124,9 +126,9 @@ The prestaPaypal constructor takes the path where you install Paypal's API. I do
 	$paypalData["amount"]    		= $offer_value;
 	// The cost of shipping this item
 	$paypalData["shipping"]   		= 0;
-	// 0 – prompt for an address, but do not require one
-	// 1 – do not prompt for an address
-	// 2 – prompt for an address, and require one
+	// 0 ï¿½ prompt for an address, but do not require one
+	// 1 ï¿½ do not prompt for an address
+	// 2 ï¿½ prompt for an address, and require one
 	$paypalData["no_shipping"]  	= 1;
 	// Passthrough variable never presented to the payer.
 	$paypalData["custom"]    		= $id_invoice;
@@ -145,7 +147,7 @@ The prestaPaypal constructor takes the path where you install Paypal's API. I do
 	// Set this to a flat tax amount to apply to the transaction regardless of the buyer's location. 
 	// This value overrides any tax settings set in your account profile. 
 	// Valid only for Buy Now and Add to Cart buttons. 
-	// Default – Profile tax settings, if any, apply.
+	// Default ï¿½ Profile tax settings, if any, apply.
 	$paypalData["tax"]     			= _calc_montant_TVA( $this->o_order->getOfferValueHt(), $this->o_order->getTvaValue() );
 	// The language of the login or sign-up page that subscribers see when they click the Subscribe button
 	$paypalData["lc"]     			= 'FR';
