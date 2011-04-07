@@ -709,7 +709,8 @@ class prestaPaypal
 			}
 			else
 			{
-				$this->api_error_string = $request->Errors->LongMessage;
+				$this->api_error_string = PEAR::isError($request) ? $request->getMessage()
+				                                                  : $request->Errors->LongMessage;
 			}
 			return false;
 		}
