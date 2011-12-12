@@ -1,5 +1,4 @@
 <?php
-
 class prestaPaypal
 {
 	/**
@@ -789,5 +788,17 @@ class prestaPaypal
 	{
 		$form = new PaypalForm($values);
 		return $form;
+	}
+	
+	/**
+	 * Setting currency id
+	 *
+	 * @author Paweł Wilk <p.wilk@alwasatt.com>
+	 * 
+	 * @param string $currencyId
+	 */
+	public function setCurrencyId($currencyId)
+	{
+    $this->currency_id = $currencyId;
 	}
 }
