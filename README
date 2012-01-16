@@ -2,7 +2,7 @@
 
 The prestaPaypalPlugin provides an easy way to integrate paypal on your website.
 The PHP Paypal's API: SOAP Interface is included.
-This plugin is largely inspired from sfPaypalDirectPlugin developped by Isaac Saldana.
+This plugin is largely inspired from sfPaypalDirectPlugin developed by Isaac Saldana.
 
 
 ## Features
@@ -25,7 +25,7 @@ The prestaPaypal plugin is licensed under the MIT License.
 ## First
 
 First of all, you must create a developer account for testing on the sandbox : https://developer.paypal.com/.
-Next step, generate your business account to recieve payements and user account to do payements.
+Next step, generate your business account to recieve payements and user account to do payments.
 
 The prestaPaypal constructor takes the path where you install Paypal's API. I don't recommend putting it on lib since you don't want it to be automatically loaded on every page view.
 
@@ -38,13 +38,17 @@ The prestaPaypal constructor takes the path where you install Paypal's API. I do
 	// Your PayPal ID or an email address associated with your PayPal account. Email addresses must be confirmed.
 	$cc->setUserName(sfConfig::get('mod_registration_paypal_username'));
 	$cc->setPassword(sfConfig::get('mod_registration_paypal_password'));
+
 	// API signature
 	// How to get a signature ? https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_NVPAPIBasics
 	$cc->setSignature(sfConfig::get('mod_registration_paypal_signature'));
-	// Usefull in development environment
+
+	// Useful in development environment
 	$cc->setTestMode(sfConfig::get('mod_registration_paypal_test'));
-	// Amount payement incl. taxes
+
+	// Amount payment incl. taxes
 	$cc->setTransactionTotal($total);
+
 	// A description for the transaction
 	$cc->setTransactionDescription($desc);
 
